@@ -9,7 +9,7 @@ from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 
 '''
-Textinput:
+Textinput widget is used
 https://kivy.org/docs/api-kivy.uix.textinput.html
 Unicode, multiline, cursor navigation, selection and clipboard features are supported.
 '''
@@ -17,30 +17,42 @@ Unicode, multiline, cursor navigation, selection and clipboard features are supp
 class TestTextInputApp(App):
 # layout
     def build(self):
+        '''
+        Method called to build up the UI. Defines all the widgets involved
+        '''
         layout = BoxLayout(padding=10, orientation='vertical')
         # button
         btn1 = Button(text="OK")
+        # define callback for button press
         btn1.bind(on_press=self.buttonClicked)
         layout.add_widget(btn1)
         
-        # label
+        # label1
         self.lbl1 = Label(text="test")
         layout.add_widget(self.lbl1)
 
-        # text input
+        # label2
+        self.lbl2 = Label(text="Current selection")
+        layout.add_widget(self.lbl2)
+
+        # text input 1
         self.txt1 = TextInput(text='', multiline=True)
         (self.txt1).bind(text=self.on_text)
         layout.add_widget(self.txt1)
 
         return layout
 
-# button click function
+# button click callback
     def buttonClicked(self,btn):
         self.lbl1.text = "Keywords: " + self.txt1.text
 
-# text changed function
+# text changed callback 
     def on_text(self, instance, value):
-        print('Instance:',instance,' Value:',value,' Text written: ', self.txt1.text)
+        '''
+        Update different UI widget (label) realtime with the entered text from text input 1
+        '''
+        # print('Instance:',instance,' Value:',value)
+        self.lbl2.text = "Repeat text: " + value
 
 # run app
 if __name__ == "__main__":
