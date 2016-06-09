@@ -17,7 +17,9 @@ class TestTextInputApp(App):
         '''
         Method called to build up the UI. Defines all the widgets involved
         '''
+        # BoxLayout arranges widgets in an adjacent manner, either vertically or horizontally
         layout = BoxLayout(padding=10, orientation='vertical')
+
         # button
         btn1 = Button(text="Display Selection")
         # define callback for button press
