@@ -22,21 +22,21 @@ class TestTextInputApp(App):
         '''
         layout = BoxLayout(padding=10, orientation='vertical')
         # button
-        btn1 = Button(text="OK")
+        btn1 = Button(text="Display Selection")
         # define callback for button press
         btn1.bind(on_press=self.buttonClicked)
         layout.add_widget(btn1)
         
         # label1
-        self.lbl1 = Label(text="test")
+        self.lbl1 = Label(text="Curent selection: ")
         layout.add_widget(self.lbl1)
 
         # label2
-        self.lbl2 = Label(text="Current selection")
-        layout.add_widget(self.lbl2)
+        # self.lbl2 = Label(text="")
+        # layout.add_widget(self.lbl2)
 
         # text input 1
-        self.txt1 = TextInput(text='', multiline=True)
+        self.txt1 = TextInput(text='Type here ...', multiline=True)
         (self.txt1).bind(text=self.on_text)
         layout.add_widget(self.txt1)
 
@@ -44,7 +44,11 @@ class TestTextInputApp(App):
 
 # button click callback
     def buttonClicked(self,btn):
-        self.lbl1.text = "Keywords: " + self.txt1.text
+        '''
+        When button is clicked, display the highlighted text in
+        '''
+        # self.lbl1.text = "Keywords: " + self.txt1.text
+        self.lbl1.text = "Current selection: " + self.txt1.selection_text
 
 # text changed callback 
     def on_text(self, instance, value):
@@ -52,7 +56,7 @@ class TestTextInputApp(App):
         Update different UI widget (label) realtime with the entered text from text input 1
         '''
         # print('Instance:',instance,' Value:',value)
-        self.lbl2.text = "Repeat text: " + value
+        # self.lbl2.text = "Repeat text: " + value
 
 # run app
 if __name__ == "__main__":
