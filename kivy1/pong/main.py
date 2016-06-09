@@ -35,7 +35,6 @@ class PongGame(Widget):
         if (self.ball.x < 0) or (self.ball.right > self.width):
             self.ball.velocity_x *= -1
 
-
 class PongApp(App):
     def build(self):
         game = PongGame()
