@@ -19,25 +19,21 @@ class TestTextInputApp(App):
         '''
         # BoxLayout arranges widgets in an adjacent manner, either vertically or horizontally
         layout = BoxLayout(padding=10, orientation='vertical')
-
-        # button
-        btn1 = Button(text="Display Selection")
-        # define callback for button press
-        btn1.bind(on_press=self.buttonClicked)
-        layout.add_widget(btn1)
         
         # label1
         self.lbl1 = Label(text="Curent selection: ")
         layout.add_widget(self.lbl1)
 
-        # label2
-        # self.lbl2 = Label(text="")
-        # layout.add_widget(self.lbl2)
-
         # text input 1
         self.txt1 = TextInput(text='Type here ...', multiline=True)
         (self.txt1).bind(text=self.on_text)
         layout.add_widget(self.txt1)
+
+        # button
+        btn1 = Button(text="Click to display selection")
+        # define callback for button press
+        btn1.bind(on_press=self.buttonClicked)
+        layout.add_widget(btn1)
 
         return layout
 
